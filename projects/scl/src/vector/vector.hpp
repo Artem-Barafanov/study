@@ -46,12 +46,12 @@ namespace ABar {
 		}
 
 		bool insert(const int position, const T& value) {
-			if (position > 0 && position < size && (size + 1) <= capacity) {
+			if (position >= 0 && position < size && (size + 1) <= capacity) {
 				size += 1;
-				for (int i = size - 1; i > position + 1; i--) {
+				for (int i = size - 1; i > position; i--) {
 					arr[i] = arr[i - 1];
 				}
-				arr[position + 1] = value;
+				arr[position] = value;
 				return true;
 			}
 			else {
@@ -79,6 +79,10 @@ namespace ABar {
 		}
 		std::size_t size_arr() const noexcept {
 			return size;
+		}
+
+		T& operator[](std::size_t index) {
+			return arr[index];
 		}
 	};
 }

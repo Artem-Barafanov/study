@@ -37,6 +37,9 @@ namespace ABar {
 				delete tmp;
 			}
 		}
+		Node* get() {
+			return begin;
+		}
 
 		void push_back(const T& value) noexcept {
 			Node* new_node = new Node(value);
